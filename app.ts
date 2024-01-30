@@ -17,11 +17,18 @@ app.use(express.json({ limit: "50mb" }));
 
 // cookie parser
 app.use(cookieParser());
+const allowedOrigins = ["https://nepalimentor.com", "https://nepalimentor.com/"];
 
 // cors => cross origin resource sharing
 app.use(
-  cors()
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
+  })
 );
+
 // api requests limit
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
