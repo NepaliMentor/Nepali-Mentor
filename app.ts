@@ -23,6 +23,7 @@ app.use(
   cors({
     origin: ["http://localhost:3000","https://www.nepalimentor.com"],
     credentials: true,
+    
   })
 );
 // api requests limit
