@@ -20,10 +20,7 @@ app.use(cookieParser());
 
 // cors => cross origin resource sharing
 app.use(
-  cors({
-    origin: ["https://nepalimentor.com/", "http://localhost:3000"],
-    credentials: true,
-  })
+  cors()
 );
 // api requests limit
 const limiter = rateLimit({
