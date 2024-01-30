@@ -10,6 +10,7 @@
   "scripts": {
     "watch": "tsc -w",
     "dev": " node build/server.js",
+    "ldev": "ts-node-dev --respawn --transpile-only server.ts",
     "start": "node build/server.js",
     "build": "tsc"
   },
