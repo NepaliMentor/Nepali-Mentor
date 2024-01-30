@@ -19,23 +19,13 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 
 
-// cors => cross origin resource sharing
-app.use((req: Request, res: Response, next: NextFunction) => {
-  res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL as string);
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.setHeader('Access-Control-Max-Age', '1800');
-  res.setHeader('Access-Control-Allow-Headers', 'content-type');
-  res.setHeader('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, PATCH, OPTIONS');
-  next();
-});
-
+// cors => cross-origin resource sharing
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: ["http://localhost:3000", "https://www.nepalimentor.com"],
     credentials: true,
   })
 );
-
 // api requests limit
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
