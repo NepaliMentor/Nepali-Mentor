@@ -19,7 +19,12 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 
 // cors => cross origin resource sharing
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://nepalimentor.com",
+    credentials: true,
+  })
+);
 // Set middleware of CORS 
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.setHeader(
