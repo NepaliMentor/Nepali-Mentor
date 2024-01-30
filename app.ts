@@ -19,13 +19,13 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 
 
-// cors => cross-origin resource sharing
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://www.nepalimentor.com"],
-    credentials: true,
-  })
-);
+ // Cors
+ const corsOptions = {
+  origin: '*',
+  credentials: true,
+  optionSuccessStatus: 200
+}
+app.use(cors(corsOptions))
 // api requests limit
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
