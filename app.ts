@@ -18,15 +18,11 @@ app.use(express.json({ limit: "50mb" }));
 // cookie parser
 app.use(cookieParser());
 
-// cors => cross origin resource sharing
-app.use(
-  cors({
-    origin: ["http://localhost:3000","http://localhost:3000/","https://nepalimentor.com", "https://www.nepalimentor.com","https://nepalimentor.com/", "http://www.nepalimentor.com","https://nepali-mentor-production.up.railway.app/","https://nepali-mentor-production.up.railway.app", "https://www.nepali-mentor-production.up.railway.app/"],
-    methods: '*', // Allow all HTTP methods
-    optionsSuccessStatus: 204,
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true,
+}))
+
 
 // api requests limit
 const limiter = rateLimit({
