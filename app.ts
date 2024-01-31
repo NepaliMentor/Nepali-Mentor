@@ -21,7 +21,7 @@ app.use(cookieParser());
 // cors => cross origin resource sharing
 app.use(
   cors({
-    origin: ["http://localhost:3000","https://nepalimentor.com", "https://www.nepalimentor.com","https://nepalimentor.com/", "http://www.nepalimentor.com","https://nepali-mentor-production.up.railway.app/","https://nepali-mentor-production.up.railway.app", "https://www.nepali-mentor-production.up.railway.app/"],
+    origin: ["http://localhost:3000","http://localhost:3000/","https://nepalimentor.com", "https://www.nepalimentor.com","https://nepalimentor.com/", "http://www.nepalimentor.com","https://nepali-mentor-production.up.railway.app/","https://nepali-mentor-production.up.railway.app", "https://www.nepali-mentor-production.up.railway.app/"],
     methods: '*', // Allow all HTTP methods
     optionsSuccessStatus: 204,
     credentials: true,
