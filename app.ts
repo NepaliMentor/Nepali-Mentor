@@ -18,30 +18,11 @@ app.use(express.json({ limit: "50mb" }));
 // cookie parser
 app.use(cookieParser());
 
-// cors configuration
-app.use((req: Request, res: Response, next: NextFunction) => {
-  const allowedOrigins = [
-    "http://localhost:3000",
-    "https://nepalimentor.com",
-    "https://www.nepalimentor.com",
-    "https://nepali-mentor-production.up.railway.app",
-    // Add other allowed origins as needed
-  ];
-
-  const origin = req.headers.origin as string;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-
-  if (req.method === "OPTIONS") {
-    res.sendStatus(204);
-  } else {
-    next();
-  }
-});
+app.use(
+  origin: ["https://nepalimentor.com", "https://nepalimentor.com/api/v1/","https://nepali-mentor-production.up.railway.app", "http://localhost:3000"],
+    credentials: true,
+  })
+);
 
 
 // api requests limit
