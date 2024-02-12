@@ -19,7 +19,6 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 
 app.use(cors({
-    origin: ["http://localhost:3000","https://www.nepalimentor.com"],
     origin: ["http://localhost:3000","https://nepalimentor.com", "https://www.nepalimentor.com","https://nepalimentor.com/", "http://www.nepalimentor.com","https://nepali-mentor-production.up.railway.app/","https://nepali-mentor-production.up.railway.app", "https://www.nepali-mentor-production.up.railway.app/"],
     methods: '*', // Allow all HTTP methods
     optionsSuccessStatus: 204,
