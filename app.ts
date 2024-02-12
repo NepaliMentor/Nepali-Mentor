@@ -18,13 +18,30 @@ app.use(express.json({ limit: "50mb" }));
 // cookie parser
 app.use(cookieParser());
 
-app.use(cors({
-    origin: ["http://localhost:3000","https://nepalimentor.com", "https://www.nepalimentor.com","https://nepalimentor.com/", "http://www.nepalimentor.com","https://nepali-mentor-production.up.railway.app/","https://nepali-mentor-production.up.railway.app", "https://www.nepali-mentor-production.up.railway.app/"],
-    methods: '*', // Allow all HTTP methods
-    optionsSuccessStatus: 204,
-    credentials: true,
+// cors configuration
+app.use((req: Request, res: Response, next: NextFunction) => {
+  const allowedOrigins = [
+    "http://localhost:3000",
+    "https://nepalimentor.com",
+    "https://www.nepalimentor.com",
+    "https://nepali-mentor-production.up.railway.app",
+    // Add other allowed origins as needed
+  ];
 
-  }))
+  const origin = req.headers.origin as string;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  if (req.method === "OPTIONS") {
+    res.sendStatus(204);
+  } else {
+    next();
+  }
+});
 
 
 // api requests limit
