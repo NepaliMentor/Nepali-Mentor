@@ -19,7 +19,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://localhost:3000","https://nepalimentor.com","https://nepalimentor.com/"],
+    origin: ["http://localhost:3000","https://nepalimentor.com","https://nepalimentor.com/","https://lms.nepalimentor.com/", "https://lms.nepalimentor.com"],
     credentials: true,
   })
 );
